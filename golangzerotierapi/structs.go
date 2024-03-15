@@ -73,15 +73,8 @@ type NetworkConfig struct {
 		Target string `json:"target"`
 		Via    string `json:"via,omitempty"`
 	} `json:"routes"`
-	Rules []struct {
-		EtherType int    `json:"etherType,omitempty"`
-		Not       bool   `json:"not,omitempty"`
-		Or        bool   `json:"or,omitempty"`
-		Type      string `json:"type"`
-		ID        int    `json:"id,omitempty"`
-		Value     int    `json:"value,omitempty"`
-	} `json:"rules"`
-	Tags []struct {
+	Rules Rules `json:"rules"`
+	Tags  []struct {
 		Default int `json:"default"`
 		ID      int `json:"id"`
 	} `json:"tags"`
@@ -101,6 +94,15 @@ type NetworkConfig struct {
 		Enabled bool   `json:"enabled"`
 		Mode    string `json:"mode"`
 	} `json:"ssoConfig"`
+}
+
+type Rules struct {
+	EtherType int    `json:"etherType,omitempty"`
+	Not       bool   `json:"not,omitempty"`
+	Or        bool   `json:"or,omitempty"`
+	Type      string `json:"type"`
+	ID        int    `json:"id,omitempty"`
+	Value     int    `json:"value,omitempty"`
 }
 
 type NetworkMember struct {

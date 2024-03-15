@@ -1,6 +1,7 @@
 package golangzerotierapi
 
 import (
+	"crypto/tls"
 	"errors"
 	"io"
 	"net/http"
@@ -12,8 +13,17 @@ import (
 func (c *Client) MakeGetRequest(url string) ([]byte, error) {
 	var respBody []byte
 
-	// Create an HTTP client
-	client := &http.Client{}
+	var client *http.Client
+
+	if c.Insecure {
+		tr := &http.Transport{
+			TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+		}
+		client = &http.Client{Transport: tr}
+	} else {
+		// Create an HTTP client
+		client = &http.Client{}
+	}
 
 	// Create a new GET request with the provided URL
 	req, _ := http.NewRequest("GET", c.BaseURL+url, nil)

@@ -2,7 +2,6 @@ package golangzerotierapi
 
 import (
 	"errors"
-	"fmt"
 	"io"
 	"net/http"
 	"strconv"
@@ -46,9 +45,6 @@ func (c *Client) MakeGetRequest(url string) ([]byte, error) {
 		return respBody, err
 	}
 
-	// Print the response body as a string
-	fmt.Println(string(respBody))
-
 	// Return the response body and nil error
 	return respBody, err
 }
@@ -81,7 +77,6 @@ func (c *Client) MakePostRequest(url string, data io.Reader) ([]byte, error) {
 
 	// Check if the response status code is not 200 OK
 	if resp.StatusCode != 200 {
-		fmt.Println(string(respBody))
 
 		// Create an error indicating non-200 status code
 		err := errors.New("Non 200 response: " + strconv.Itoa(resp.StatusCode))
@@ -95,9 +90,6 @@ func (c *Client) MakePostRequest(url string, data io.Reader) ([]byte, error) {
 		// Return empty response body and the error if reading fails
 		return respBody, err
 	}
-
-	// Print the response body as a string
-	fmt.Println(string(respBody))
 
 	// Return the response body and nil error
 	return respBody, err

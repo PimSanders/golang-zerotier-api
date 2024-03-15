@@ -3,7 +3,6 @@ package golangzerotierapi
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"log"
 )
 
@@ -164,8 +163,6 @@ func (c *Client) UpdateNetworkMember(networkID string, memberID string, member U
 		log.Panic(err)
 		return respMap, err
 	}
-
-	fmt.Println(string(data))
 
 	reader := bytes.NewReader(data)
 

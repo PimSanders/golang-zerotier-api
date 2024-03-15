@@ -1,6 +1,6 @@
 package golangzerotierapi
 
-// Client represents a client for interacting with the API.
+// Client represents a client for interacting with the ZeroTier API.
 type Client struct {
 	BaseURL  string
 	Token    string

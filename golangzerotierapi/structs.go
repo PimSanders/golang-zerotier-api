@@ -73,7 +73,7 @@ type NetworkConfig struct {
 		Target string `json:"target"`
 		Via    string `json:"via,omitempty"`
 	} `json:"routes"`
-	Rules Rules `json:"rules"`
+	Rules []Rules `json:"rules"`
 	Tags  []struct {
 		Default int `json:"default"`
 		ID      int `json:"id"`

@@ -1,4 +1,4 @@
-package main
+package golangzerotierapi
 
 import (
 	"errors"
@@ -10,7 +10,7 @@ import (
 
 // makeGetRequest performs a GET request to the specified URL.
 // It returns the response body ([]byte) and an error if any.
-func (c *Client) makeGetRequest(url string) ([]byte, error) {
+func (c *Client) MakeGetRequest(url string) ([]byte, error) {
 	var respBody []byte
 
 	// Create an HTTP client
@@ -55,7 +55,7 @@ func (c *Client) makeGetRequest(url string) ([]byte, error) {
 
 // makePostRequest performs a POST request to the specified URL with the provided data.
 // It returns the response body ([]byte) and an error if any.
-func (c *Client) makePostRequest(url string, data io.Reader) ([]byte, error) {
+func (c *Client) MakePostRequest(url string, data io.Reader) ([]byte, error) {
 	var respBody []byte
 
 	// Create an HTTP client
@@ -81,6 +81,8 @@ func (c *Client) makePostRequest(url string, data io.Reader) ([]byte, error) {
 
 	// Check if the response status code is not 200 OK
 	if resp.StatusCode != 200 {
+		fmt.Println(string(respBody))
+
 		// Create an error indicating non-200 status code
 		err := errors.New("Non 200 response: " + strconv.Itoa(resp.StatusCode))
 		// Return empty response body and the error
@@ -103,7 +105,7 @@ func (c *Client) makePostRequest(url string, data io.Reader) ([]byte, error) {
 
 // makeDeleteRequest performs a DELETE request to the specified URL.
 // It returns an error if any.
-func (c *Client) makeDeleteRequest(url string) error {
+func (c *Client) MakeDeleteRequest(url string) error {
 	// Create an HTTP client
 	client := &http.Client{}
 

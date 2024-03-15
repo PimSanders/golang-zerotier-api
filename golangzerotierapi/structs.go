@@ -1,4 +1,4 @@
-package main
+package golangzerotierapi
 
 type Network struct {
 	ID                    string         `json:"id"`
@@ -117,7 +117,7 @@ type NetworkMember struct {
 		ActiveBridge         bool     `json:"activeBridge"`
 		Address              string   `json:"address"`
 		Authorized           bool     `json:"authorized"`
-		Capabilities         []string `json:"capabilities"`
+		Capabilities         []int    `json:"capabilities"`
 		CreationTime         int64    `json:"creationTime"`
 		ID                   string   `json:"id"`
 		Identity             string   `json:"identity"`

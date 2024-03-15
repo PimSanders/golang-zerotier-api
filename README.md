@@ -26,7 +26,7 @@ Install the package with:
 Create a new client:
 
 ```golang
-zt := golangzerotierapi.NewClient("https://api.zerotier.com/api/v1", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+zt := golangzerotierapi.NewClient("https://api.zerotier.com/api/v1", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", false)
 ```
 
 Get a list of networks:

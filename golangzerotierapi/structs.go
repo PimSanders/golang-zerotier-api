@@ -34,9 +34,9 @@ type Network struct {
 }
 
 type UpdateNetwork struct {
-	Config      *NetworkConfig `json:"config"`
-	Description string         `json:"description"`
-	RulesSource string         `json:"rulesSource"`
+	Config      NetworkConfig `json:"config"`
+	Description string        `json:"description"`
+	RulesSource string        `json:"rulesSource"`
 	Permissions struct {
 		Zero0000000000000000000000000000000 struct {
 			A bool `json:"a"`
